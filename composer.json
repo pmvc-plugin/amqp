@@ -14,7 +14,7 @@
     "require": {
         "pmvc/pmvc": "*",
         "pmvc-plugin/guid": "*",
-        "php-amqplib/php-amqplib": "v3.0.0-rc2"
+        "php-amqplib/php-amqplib": ">=3.0.0-rc"
     },
     "minimum-stability": "dev"
 }
