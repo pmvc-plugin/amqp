@@ -27,3 +27,5 @@ amqp
 #### 2.2 Or use composer command-line
    * php composer.phar require pmvc-plugin/amqp
 
+## Library
+https://github.com/php-amqplib/php-amqplib
