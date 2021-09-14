@@ -13,6 +13,7 @@
     ],
     "require": {
         "pmvc/pmvc": "*",
+        "pmvc-plugin/unit": "*",
         "pmvc-plugin/guid": "*",
         "php-amqplib/php-amqplib": ">=3.0.0"
     },

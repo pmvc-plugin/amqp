@@ -1,17 +1,17 @@
 <?php
 namespace PMVC\PlugIn\amqp;
 
-use PHPUnit_Framework_TestCase;
+use PMVC\TestCase;
 
-class AmqpTest extends PHPUnit_Framework_TestCase
+class AmqpTest extends TestCase
 {
     private $_plug = 'amqp';
 
-    private $_data = ['a'=>'b', 'c'=>'d'];
+    private $_data = ['a' => 'b', 'c' => 'd'];
 
-    public function setup()
+    public function pmvc_setup()
     {
-      \PMVC\unplug($this->_plug);
+        \PMVC\unplug($this->_plug);
     }
 
     public function testPlugin()
@@ -20,17 +20,19 @@ class AmqpTest extends PHPUnit_Framework_TestCase
         print_r(\PMVC\plug($this->_plug));
         $output = ob_get_contents();
         ob_end_clean();
-        $this->assertContains($this->_plug,$output);
+        $this->haveString($this->_plug, $output);
     }
 
     /**
-     * @expectedException DomainException 
+     * @expectedException DomainException
      */
     public function testInitAmqp()
     {
-        $p = \PMVC\plug($this->_plug);
-        $hello = $p->getDb('hello');
-        $hello[]=$this->_data;
+        $this->willThrow(function () {
+            $p = \PMVC\plug($this->_plug);
+            $hello = $p->getDb('hello');
+            $hello[] = $this->_data;
+        }, false);
     }
 
     /**
@@ -38,8 +40,10 @@ class AmqpTest extends PHPUnit_Framework_TestCase
      */
     public function testGetAmqp()
     {
-        $p = \PMVC\plug($this->_plug);
-        $hello = $p->getDb('hello');
-        var_dump($hello[null]);
+        $this->willThrow(function () {
+            $p = \PMVC\plug($this->_plug);
+            $hello = $p->getDb('hello');
+            var_dump($hello[null]);
+        }, false);
     }
 }
