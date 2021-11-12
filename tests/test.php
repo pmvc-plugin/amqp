@@ -30,7 +30,7 @@ class AmqpTest extends TestCase
     {
         $this->willThrow(function () {
             $p = \PMVC\plug($this->_plug);
-            $hello = $p->getDb('hello');
+            $hello = $p->getModel('hello');
             $hello[] = $this->_data;
         }, false);
     }
@@ -42,7 +42,7 @@ class AmqpTest extends TestCase
     {
         $this->willThrow(function () {
             $p = \PMVC\plug($this->_plug);
-            $hello = $p->getDb('hello');
+            $hello = $p->getModel('hello');
             var_dump($hello[null]);
         }, false);
     }

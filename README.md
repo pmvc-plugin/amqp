@@ -1,6 +1,6 @@
 [![Latest Stable Version](https://poser.pugx.org/pmvc-plugin/amqp/v/stable)](https://packagist.org/packages/pmvc-plugin/amqp) 
 [![Latest Unstable Version](https://poser.pugx.org/pmvc-plugin/amqp/v/unstable)](https://packagist.org/packages/pmvc-plugin/amqp) 
-[![Build Status](https://travis-ci.org/pmvc-plugin/amqp.svg?branch=master)](https://travis-ci.org/pmvc-plugin/amqp)
+[![CircleCI](https://circleci.com/gh/pmvc-plugin/amqp/tree/master.svg?style=svg)](https://circleci.com/gh/pmvc-plugin/amqp/tree/master)
 [![License](https://poser.pugx.org/pmvc-plugin/amqp/license)](https://packagist.org/packages/pmvc-plugin/amqp)
 [![Total Downloads](https://poser.pugx.org/pmvc-plugin/amqp/downloads)](https://packagist.org/packages/pmvc-plugin/amqp) 
 

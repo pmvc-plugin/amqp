@@ -10,20 +10,21 @@ class BaseAmqp extends HashMap
     /**
      * Group ID
      */
-    protected $groupId;
+    protected $modelId;
+
     /**
      * Amqp instance
      */
-    public $db;
+    public $engine;
 
     /**
      * Construct
      */
-    public function __construct($db, $groupId=null)
+    public function __construct($engine, $modelId=null)
     {
-        $this->db = $db;
-        $this->groupId = $groupId;
-        $db->queue_declare($groupId, false, true, false, false);
+        $this->engine = $engine;
+        $this->modelId = $modelId;
+        $engine->queue_declare($modelId, false, true, false, false);
     }
 
     public function offsetSet($k, $v)
@@ -32,13 +33,13 @@ class BaseAmqp extends HashMap
         $msg = new AMQPMessage($json, [
           'delivery_mode' => AMQPMessage :: DELIVERY_MODE_PERSISTENT
         ]);
-        $this->db->basic_publish($msg, '', $this->groupId);
+        $this->engine->basic_publish($msg, '', $this->modelId);
     }
 
     public function &offsetGet($callback = NULL)
     {
-        $db = $this->db;
-        $result = $db->basic_get($this->groupId, true);
+        $engine = $this->engine;
+        $result = $engine->basic_get($this->modelId, true);
         return \PMVC\fromJson(\PMVC\get($result, 'body', null), true);
     }
 }

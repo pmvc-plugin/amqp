@@ -4,14 +4,14 @@ namespace PMVC\PlugIn\amqp;
 
 use PMVC\PlugIn;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
-use IdOfThings\GetDb;
+use IdOfThings\GetModel;
 
 \PMVC\initPlugin(['guid'=>null]);
 \PMVC\l(__DIR__.'/src/BaseAmqp.php');
 
 ${_INIT_CONFIG}[_CLASS] = __NAMESPACE__.'\amqp';
 
-class amqp extends GetDb 
+class amqp extends GetModel 
 {
     private $_ch;
     private $_conn;
@@ -62,7 +62,7 @@ class amqp extends GetDb
       }
     }
 
-    public function getBaseDb()
+    public function getBaseModel()
     {
         return __NAMESPACE__.'\BaseAmqp';
     }
