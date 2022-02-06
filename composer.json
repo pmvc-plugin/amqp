@@ -12,6 +12,7 @@
         }
     ],
     "require": {
+        "ext-sockets": "*",
         "pmvc/pmvc": "*",
         "pmvc-plugin/unit": "*",
         "pmvc-plugin/guid": "*",
